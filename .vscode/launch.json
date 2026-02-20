@@ -1,25 +1,19 @@
+// xv6-riscv/.vscode/launch.json
 {
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "xv6debug-user",
+            "name": "xv6debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/user/_${fileBasenameNoExtension}",
+            "program": "${workspaceFolder}/user/_grep",
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
-            "miDebuggerPath": "/usr/bin/gdb-multiarch",
-            "miDebuggerArgs": "-q -ex \"set architecture riscv:rv64\" -ex \"file user/_${fileBasenameNoExtension}\"",
+            "miDebuggerServerAddress": "127.0.0.1:26000", //见.gdbinit 中 target remote xxxx:xx
+            "miDebuggerPath": "/usr/bin/gdb-multiarch", // which gdb-multiarch
+            "miDebuggerArgs": "-q -ex \"set architecture riscv:rv64\" -ex \"file user/_grep\"",
             "MIMode": "gdb",
-            "externalConsole": false,
-            "avoidWindowsConsoleRedirection": false,
-            "logging": {
-                "exceptions": false,
-                "programOutput": false,
-                "engineLogging": false,
-                "moduleLoad": false,
-                "trace": false
-            }
+            "externalConsole": true
         }
     ]
 }
