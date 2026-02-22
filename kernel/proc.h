@@ -104,4 +104,6 @@ struct proc {
   struct file *ofile[NOFILE];  // Open files
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
+  int mask;                    // specify which system calls the kernel should reject from the calling process
+  char allowed_path[MAXPATH];  // the pathname allowed to call open or exec
 };
